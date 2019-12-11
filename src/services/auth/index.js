@@ -1,41 +1,47 @@
-
-export default{
-    user : null,
-    registeredUser:[],
-    setUser(user){
-        this.user=user
+import ROUTER from "../../router"
+export default {
+    user: null,
+    registeredUser: [],
+    setUser(user) {
+        this.user = user
     },
-    getUser(user){
-        return this.user=user
+    getUser(user) {
+        return this.user = user
     },
-    register(email,password){
+    register(lastname, firstname, address, age, contactnumber, email, username, password) {
         this.registeredUser.push({
+            lastname: lastname,
+            firstname: firstname,
+            age: age,
+            address: address,
+            contactnumber: contactnumber,
+            username: username,
             email: email,
-            password:password
+            password: password
         })
-        Router.push('/login')
+        ROUTER.push('/login')
     },
-    login(email,password){
-        for(let i=0;i<this.registeredUser.length;i++){
-            if(this.registeredUser[i].email===email && this.registeredUser[i].password==password){
-                Router.push('/dashboard')
+    login(email, password) {
+        for (let i = 0; i < this.registeredUser.length; i++) {
+            if (this.registeredUser[i].email === email && this.registeredUser[i].password == password) {
+                ROUTER.push('/reserved')
                 return this.registeredUser[i]
             }
         }
         return null
     },
-    logout(){
-        this.user=null
+    logout() {
+        this.user = null
         sessionStorage.clear();
-        Router.push('/login')
+        ROUTER.push('/firstpage')
     },
-    update(){
+    update() {
         this.user = null
-        Router.push('/editprofile')
+        ROUTER.push('/editprofile')
     },
-    save(){
+    save() {
         this.user = null
-        Router.push('/profile')
+        ROUTER.push('/profile')
     }
 
 

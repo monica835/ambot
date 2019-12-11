@@ -76,9 +76,6 @@ export default {
     item() {
       this.$router.push("/items");
     },
-    profile() {
-      this.$router.push("/profile");
-    },
     handleResize() {
       if (window.innerWidth < 1200) {
         this.flexall = 12;

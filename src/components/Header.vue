@@ -5,7 +5,7 @@
       <v-spacer>
       </v-spacer>
       <v-btn link @click="login()" class="mx-2" fab dark color="blue" icon>
-        <v-icon dark>fas fa-sign-out-alt</v-icon>
+        <v-icon dark>mdi-login</v-icon>
       </v-btn>
       <v-btn link @click="register()" class="mx-2" fab dark color="blue" icon>
         <v-icon dark>fas fa-registered</v-icon>

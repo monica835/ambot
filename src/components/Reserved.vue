@@ -162,10 +162,10 @@ export default {
       }
     }
   },
-  mounted() {
-    // if not logged in  direct to login
-    sessionStorage.setItem("item_id", this.$route.params.item);
-  }
+  // mounted() {
+  //   // if not logged in  direct to login
+  //   sessionStorage.setItem("item_id", this.$route.params.item);
+  // }
 };
 </script>
 <style scoped>

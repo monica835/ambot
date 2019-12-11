@@ -4,31 +4,31 @@
     <section class="search-sec">
       <div class="container">
         <form action="#" method="post" novalidate="novalidate">
-          <div class="row-one">
+          <div class="row">
             <div class="col-lg-12">
                       <!-- <h2 style="margin-left:530px;">Find the best service we had...</h2> -->
               <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                <div class="col-md-2">
                   <div class="form-control search-slt">
                     <v-select v-model="select" :items="transpo" :rules="[v => !!v || 'Item is required']" label="Options" select return-object required></v-select>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                <div class="col-md-2">
                   <div class="form-control search-slt">
                     <v-text-field type="text" v-model="location"  name="input-10-1" label="location" />
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                <div class="col-md-2">
                   <div class="form-control search-slt">
                     <v-text-field type="date" v-model="dater" :prepend-icon="'mdi-calendar'" name="input-10-1" label="date reserved" />
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                <div class="col-md-2">
                   <div class="form-control search-slt">
                     <v-text-field label="date returned" type="date" v-model="date" :prepend-icon="'mdi-calendar'" name="input-10-1" />
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                <div class="col-md-2">
                   <button type="button" class="btn btn-primary wrn-btn" @click="search()">
                                   <a>Search</a>
                                 </button>

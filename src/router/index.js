@@ -7,7 +7,6 @@ import Reserved from "../components/Reserved";
 import Practice from "../components/Practice";
 import Notifications from "../components/Notifications";
 import HeaderAdmin from "../components/HeaderAdmin";
-import Profile from "../components/Profile";
 import AddItemPage from "../views/AddItemPage";
 import PageAdmin from "../components/PageAdmin";
 import EditItem from "../components/EditItem";
@@ -68,14 +67,7 @@ const routes = [
         tokenRequired: false
     }
   },
-  {
-    path:"/profile",
-    name:"profile",
-    component:Profile,
-    meta: {
-        tokenRequired: false
-    }
-  },
+  
   {
     path:"/headeradmin",
     name:"headeradmin",
@@ -120,7 +112,7 @@ const routes = [
     }
   },
   {
-    path:"/reserved/:id",
+    path:"/reserved",
     name:"reserved",
     component:Reserved,
     meta: {

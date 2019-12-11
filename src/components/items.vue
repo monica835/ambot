@@ -47,7 +47,7 @@
                       <v-select
                         v-model="editedItem.name"
                         :items="items"
-                        label="Standard"
+                        label="Items"
                       ></v-select>
                       <!-- <v-text-field v-model="editedItem.name" label="Kind of Vehicle"></v-text-field> -->
                     </v-col>
@@ -205,10 +205,11 @@ export default {
           };
           console.log("temp: ", tempObj);
           this.vehicle.push(tempObj);
+          console.log(this.vehicle)
         });
       })
       .catch(err => {
-        alert("error");
+        console.log(err)
       });
   },
   methods: {
@@ -315,10 +316,12 @@ export default {
                 .addItem(this.editedItem)
                 .then(resp => {
                   this.close();
+                  this.dialog = false
                 })
                 .catch(err => {
                   this.close();
                 });
+                
             });
         } catch (err) {
           console.log(err);
