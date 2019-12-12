@@ -13,17 +13,17 @@ let beforeEnter = (to, from, next) => {
     } else {
         next()
     }
-    // if (sessionStorage.getItem("Password") != null) {
-    //     if (to.path === '/' || to.path === '/') {
-    //         next({ path: '/login' })
-    //     } else if (to.meta.tokenRequired === true) {
-    //         next({ path: '/' })
-    //     } else {
-    //         next()
-    //     }
-    // } else {
-    //     next()
-    // }
+    if (sessionStorage.getItem("password") != null) {
+        if (to.path === '/' || to.path === '/') {
+            next({ path: '/login' })
+        } else if (to.meta.tokenRequired === true) {
+            next({ path: '/' })
+        } else {
+            next()
+        }
+    } else {
+        next()
+    }
 
 }
 var devroutes = []

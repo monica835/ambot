@@ -5,13 +5,13 @@
       <div class="row-one">
         <div class="col-lg-12">
           <div class="row">
-            <div class="col-md-2 col-md-offset-1 mx-auto">
-              <div class="form-control search-slt mx-auto">
+            <div class="col-md-2 col-md-offset-1 ">
+              <div class="form-control search-slt ">
                 <v-select v-model="select" :items="transpo" :rules="[v => !!v || 'Item is required']" label="Options" select return-object required></v-select>
               </div>
             </div>
-            <div class="col-md-2 mx-auto">
-              <div class="form-control search-slt mx-auto">
+            <div class="col-md-2 ">
+              <div class="form-control search-slt ">
                 <v-text-field type="text" v-model="location" name="input-10-1" label="location" />
               </div>
             </div>
@@ -20,8 +20,8 @@
                 <v-text-field type="date" v-model="dater" :prepend-icon="'mdi-calendar'" name="input-10-1" label="date reserved" />
               </div>
             </div>
-            <div class="col-md-2 mx-auto">
-              <div class="form-control search-slt mx-auto">
+            <div class="col-md-2 ">
+              <div class="form-control search-slt ">
                 <v-text-field label="date returned" type="date" v-model="date" :prepend-icon="'mdi-calendar'" name="input-10-1" />
               </div>
             </div>
@@ -32,7 +32,7 @@
         </div>
       </div>
     </form>
-    <div class="h1 text-center" v-if="filteredList.length == 0"> <br><br>No results found</div>
+    <div class="card text-center" v-if="filteredList.length == 0"> <br><br>No results found</div>
     <v-card v-else class="d-inline-block" v-for="(item, i) in filteredList" :key="i" cols="12">
       <v-container>
         <v-row justify="space-between">
@@ -42,7 +42,7 @@
           <v-col class="col-xs-6 col-sm-3">
             <!-- <div class="vertical"></div> -->
             <v-card-title class="name">{{item.itemname}}</v-card-title>
-              <v-rating v-model="ratings"></v-rating>
+              <v-rating v-model="rating"></v-rating>
             <hr style="width:200px;height:5px;color:dodgerblue ">
             <v-card-title class="headline">Status:{{item.status}}</v-card-title>
             <v-card-title class="headline">Location:{{item.location1}}</v-card-title>
@@ -279,17 +279,6 @@ import ROUTER from "../router";
     font-size: 40px;
     font-family: "Courier New", Courier, monospace;
   }
-  .vertical {
-    border-left: 1px solid grey;
-    height: 260px;
-    margin-left: -27%;
-    margin-top: 0.5%;
-  }
-  .verticalone {
-    border-left: 1px solid grey;
-    height: 260px;
-    margin-top: 0.5%;
-  }
   .container {
     width: 100%;
     margin-left: 5%;
@@ -297,30 +286,25 @@ import ROUTER from "../router";
   }
   .name{
     font-style: bold;
-    font-size:30px;
+    font-size:25px;
   }
-  .row[data-v-109177d0] {
-    margin-right: -35px;
-    margin-left: -65px;
-    margin-top: -1px;
-  }
-  .row-one[data-v-109177d0][data-v-109177d0] {
-    margin-right: 12%;
-    margin-left: 15%;
-    margin-top: 5%;
-  }
-  .v-card[data-v-109177d0]:not(.v-sheet--tile):not(.v-card--shaped) {
+  .v-card[data-v-109177d0][data-v-109177d0]:not(.v-sheet--tile):not(.v-card--shaped) {
     border-radius: 4px sp;
-    width: 85%;
+    width: 95%;
     margin-top: 50px;
-    margin-left: 8%;
-    /* border: 2px solid dodgerblue; */
-  }
+    margin-left: 1%;
+}
+  .v-btn:not(.v-btn--round).v-size--default[data-v-109177d0][data-v-109177d0] {
+    height: 56px;
+    min-width: 194px;
+    padding: 0 16px;
+    margin-left: 75px;
+    margin-top: 41px;
+}
   .search-slt[data-v-109177d0][data-v-109177d0] {
     width: 90%;
     height: 70px;
     font-family: Raleway-SemiBold;
-    /* border: 2px solid dodgerblue; */
   }
   .theme--light.v-sheet {
     background-color: #ffffff;
@@ -328,11 +312,12 @@ import ROUTER from "../router";
     height: 290px;
     color: rgba(0, 0, 0, 0.87);
   }
-  .row {
-    margin-right: -12px;
-    margin-left: -12px;
-    margin-top: 50px;
-  }
+  
+  .row-one[data-v-109177d0][data-v-109177d0][data-v-109177d0] {
+    margin-right: -1%;
+    margin-left: 16%;
+    margin-top: 5%;
+}
   .search-slt {
     width: 90%;
     height: 70px;
@@ -373,12 +358,4 @@ import ROUTER from "../router";
   .primary {
     margin-top: 50px;
   }
-  .v-btn:not(.v-btn--round).v-size--default[data-v-109177d0] {
-    height: 56px;
-    min-width: 194px;
-    padding: 0 16px;
-    margin-left: 75px;
-    margin-top: 69px;
-  }
-  
 </style>

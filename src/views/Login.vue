@@ -4,12 +4,12 @@
     <div class="row mx-auto">
       <div class="col-md-8 login-sec mx-auto">
         <h2 class="text-center mx-auto">Login Now</h2>
-        <form  @submit="onsubmit()">
-          <v-text-field v-model="data.email" placeholder="email" name="email" :prepend-icon="'mdi-account-circle'" type="email"></v-text-field>
-          <v-text-field id="password"  placeholder="Password" name="password" :prepend-icon="'mdi-lock'" type="password" v-model="data.password"></v-text-field>
+        <forms>
+          <v-text-field v-model="email" placeholder="email" name="email" :prepend-icon="'mdi-account-circle'" type="email"></v-text-field>
+          <v-text-field id="password"  placeholder="Password" name="password" :prepend-icon="'mdi-lock'" type="password" v-model="password"></v-text-field>
           <div class="form-check mx-auto">
 
-            <button type="submit" class="btn btn-login float-right">Submit</button>
+            <button type="submit" class="btn btn-login float-right" >Submit</button>
           </div>
           <br>
           <br>
@@ -164,38 +164,38 @@ export default {
   auth: AUTH,
   data() {
     return {
-      data: {
+     
         email: "",
         password: ""
-      }
-    };
+      
+    }
   },
   methods: {
-    onsubmit(e) {
+
       // e.preventDefault();
       // console.log(e);
-      let user = AUTH.login(this.data.email, this.data.password);
-      if (this.data.email == sessionStorage.getItem && this.data.password ==sessionStorage.getItem) {
-        alert("provide inputs!!!")
-      }else if(this.data.email === "Admin@gmail.com" && this.data.password === "Admin"){
-          ROUTER.push("/pageadmin");
-      }else{
-       ROUTER.push('/reserved')
-      }
-
-      // } else if (
-      //   this.data.email === "Admin@gmail.com" &&
-      //   this.data.password === "Admin"
-      // ) {
-      //   ROUTER.push("/pageadmin");
-      // } else {
-      //   AUTH.setUser(user);
-      //   if (user !== null) {
-      //     ROUTER.push("/reserved");
-      //   } else {
-      //     ROUTER.push("/login");
-      //   }
+      // let user = AUTH.login(this.email, this.password);
+      // if (this.email == sessionStorage.getItem && this.password ==sessionStorage.getItem) {
+      //   alert("provide inputs!!!")
+      // }else if(this.email === "Admin@gmail.com" && this.password === "Admin"){
+      //     ROUTER.push("/pageadmin");
+      // }else{
+      //  ROUTER.push('/mainpage')
       // }
+      // }methods:{
+      login(){
+         let user = AUTH.login(this.email, this.password);
+        helper.login(this.username, this.password).then(resp=>{
+          if(resp.data.status){
+            this.$router.push('/reserved');
+          }else{
+            alert(resp.data.sms)
+          }
+        })
+      
+      },
+  
+
       // e.preventDefault();
       // helper.login(this.email, this.password).then(resp => {
       //   if (resp.data.status) {
@@ -204,10 +204,10 @@ export default {
       //     alert(resp.data.sms);
       //   }
       // });
-    },
+    
     register() {
       ROUTER.push("/register");
     }
-  }
+    }
 };
 </script>
